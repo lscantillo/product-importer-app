@@ -1,14 +1,35 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Products</h1>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New product", new_product_path %>
+<h1>Product List</h1>
+<a href="<%= new_product_path %>" class="btn btn-primary btn-icon-split">
+  <span class="icon text-white-50">
+      <i class="fas fa-flag"></i>
+  </span>
+  <span class="text">Create Product</span>
+</a>
+<a href="<%= products_path(format: :xlsx) %>" class="btn btn-success btn-icon-split">
+  <span class="icon text-white-50">
+      <i class="fas fa-file"></i>
+  </span>
+  <span class="text">Export to Excel</span>
+</a>
+<br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Expiration</th>
+      <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.id %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.expiration %></td>
+      <td><%= link_to "Details", product_path(product), class: 'btn btn-primary' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
