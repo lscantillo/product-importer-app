@@ -1,10 +1,27 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @currency %>
-
-<div>
-  <%= link_to "Edit this currency", edit_currency_path(@currency) %> |
-  <%= link_to "Back to currencies", currencies_path %>
-
-  <%= button_to "Destroy this currency", @currency, method: :delete %>
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Currency Details</h1>
+    <%= link_to "Back to currencies", currencies_path, class: 'btn btn-secondary' %>
+    <%= link_to "Edit", edit_currency_path(@currency), class: 'btn btn-primary' %>
+    <div class="card" style="padding: 20px;">
+      <table class="table">
+        <tr>
+          <td><b>Currency Name:</b></td>
+          <td><%= @currency.name %></td>
+        </tr>
+        <tr>
+          <td><b>Currency Code:</b></td>
+          <td><%= @currency.currency_code %></td>
+        </tr>
+          <td><b>Created at:</b></td>
+          <td><%= @currency.created_at %></td>
+        </tr>
+        <tr>
+          <td><b>Updated at:</b></td>
+          <td><%= @currency.updated_at %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
+<br>

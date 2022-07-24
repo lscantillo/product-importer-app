@@ -1,14 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<h1>Currency List</h1>
+<a href="<%= new_currency_path %>" class="btn btn-primary btn-icon-split">
+  <span class="icon text-white-50">
+      <i class="fas fa-flag"></i>
+  </span>
+  <span class="text">Create Currency</span>
+</a>
 
-<h1>Currencies</h1>
-
-<div id="currencies">
-  <% @currencies.each do |currency| %>
-    <%= render currency %>
-    <p>
-      <%= link_to "Show this currency", currency %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New currency", new_currency_path %>
+<br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Currency Code</th>
+      <th>Actions</th>
+  </thead>
+  <tbody>
+    <% @currencies.each do |currency| %>
+    <tr>
+      <td><%= currency.id %></td>
+      <td><%= currency.name %></td>
+      <td><%= currency.currency_code %></td>
+      <td><%= link_to "Details", currency_path(currency), class: 'btn btn-primary' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,27 +1,28 @@
-<%= form_with(model: currency) do |form| %>
-  <% if currency.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
-
-      <ul>
-        <% currency.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card p-5">
+      <%= form_with model: @currency do |f| %>
+        <% if @currency.errors.any? %>
+          <div class="alert alert-danger">
+            <ul>
+              <% @currency.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+        <div class="form-group">
+          <%= f.label :name, "Name" %>
+          <%= f.text_field :name, class: "form-control", placeholder: 'New item' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :currency_code, "Currency Code" %>
+          <%= f.text_field :currency_code, class: "form-control", placeholder: 'XXX1' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Save", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_area :name %>
   </div>
-
-  <div>
-    <%= form.label :currency_code, style: "display: block" %>
-    <%= form.text_area :currency_code %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

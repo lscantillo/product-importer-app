@@ -1,10 +1,32 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @product %>
-
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
-
-  <%= button_to "Destroy this product", @product, method: :delete %>
+<div class="row">
+  <div class="col-lg-12">
+    <h1>Product Details</h1>
+    <%= link_to "Back to products", products_path, class: 'btn btn-primary' %>
+    <%= link_to "Edit", edit_product_path(@product), class: 'btn btn-primary' %>
+    <div class="card" style="padding: 20px;">
+      <table class="table">
+        <tr>
+          <td><b>Product Name:</b></td>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <td><b>Price:</b></td>
+          <td><%= @product.price %></td>
+        </tr>
+        <tr>
+          <td><b>Expiration:</b></td>
+          <td><%= @product.expiration %></td>
+        </tr>
+        <tr>
+          <td><b>Created at:</b></td>
+          <td><%= @product.created_at %></td>
+        </tr>
+        <tr>
+          <td><b>Updated at:</b></td>
+          <td><%= @product.updated_at %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
+<br>
