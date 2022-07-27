@@ -1,0 +1,189 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/currencies/upload":
+    post:
+      summary: upload currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+  "/api/currencies":
+    get:
+      summary: list currencies
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+  "/api/currencies/new":
+    get:
+      summary: new currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+  "/api/currencies/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+  "/api/currencies/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete currency
+      tags:
+      - Currencies
+      responses:
+        '200':
+          description: successful
+  "/api/dashboard/stats":
+    get:
+      summary: stats dashboard
+      tags:
+      - Dashboard
+      responses:
+        '200':
+          description: successful
+  "/api":
+    get:
+      summary: list products
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+  "/api/products":
+    get:
+      summary: list products
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+  "/api/products/new":
+    get:
+      summary: new product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+  "/api/products/{id}/edit":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: edit product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+  "/api/products/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+  "/api/products/upload":
+    post:
+      summary: upload product
+      tags:
+      - Products
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://products-importer-app.herokuapp.com/
+- url: http://localhost:3000

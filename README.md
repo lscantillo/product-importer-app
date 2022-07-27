@@ -1,24 +1,29 @@
-# README
+# Flatirons Test - Ruby On rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-* Ruby version
+Products admin panel to load itmes.
 
-* System dependencies
 
-* Configuration
+  - Product creation via form.
+  - Currency creation via form.
+  - Currency creation via api.
+  - Product creation via api.
+  - Cron Job for upload products batches via api.
 
-* Database creation
+ 
+# Usage
+ ### Web form 
+ - Go to http://localhost:3000/
+ 
+ ### API 
+ 
+- Go to http://localhost:3000/api/
 
-* Database initialization
+### API docs
+- Go to http://localhost:3000/api-docs
+# Demo
 
-* How to run the test suite
+This applications was deploy in Heroku at https://products-importer-app.herokuapp.com/
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -23,14 +23,8 @@ RSpec.configure do |config|
       },
       paths: {},
       servers: [
-        {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
-            }
-          }
-        }
+        { url: 'https://products-importer-app.herokuapp.com/' },
+        { url: ENV.fetch('RAILS_URL', 'http://localhost:3000') }
       ]
     }
   }
