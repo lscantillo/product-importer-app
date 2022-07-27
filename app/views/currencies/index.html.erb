@@ -5,6 +5,13 @@
   </span>
   <span class="text">Create Currency</span>
 </a>
+<br><br>
+<p>Batch Actions</p>
+<%= form_tag upload_api_currencies_path(@csv), multipart: true, class:"btn btn-success btn-icon-split" do %>
+  <%= file_field_tag :file, class: "icon text-white-50" %>
+  <br><br>
+  <%= submit_tag "Upload Currencies", class: "btn btn-primary btn-icon-split" %>
+<% end %>
 
 <br><br>
 <table class="table">
