@@ -2,11 +2,13 @@
 
 module Api
   class CurrenciesController < ApplicationController
+    protect_from_forgery with: :null_session
     before_action :set_currency, only: %i[show edit update destroy]
 
     # GET /currencies or /currencies.json
     def index
       @currencies = Currency.all
+      render json: @currencies
     end
 
     # GET /currencies/1 or /currencies/1.json
@@ -26,7 +28,7 @@ module Api
 
       respond_to do |format|
         if @currency.save
-          format.json { render :show, status: :created, location: @currency }
+          format.json { render json: @currency, status: :created }
         else
           format.json { render json: @currency.errors, status: :unprocessable_entity }
         end
@@ -37,7 +39,7 @@ module Api
     def update
       respond_to do |format|
         if @currency.update(currency_params)
-          format.json { render :show, status: :ok, location: @currency }
+          format.json { render json: @currency, status: :ok }
         else
           format.json { render json: @currency.errors, status: :unprocessable_entity }
         end
@@ -62,7 +64,7 @@ module Api
 
     # Only allow a list of trusted parameters through.
     def currency_params
-      params.require(:currency).permit(:name, :currency_code)
+      params.permit(:name, :currency_code)
     end
   end
 end
