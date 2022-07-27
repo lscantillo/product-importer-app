@@ -1,10 +1,18 @@
 class ProductsController < ApplicationController
   include Pagy::Backend
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[show edit update destroy]
 
   # GET /products or /products.json
   def index
+    params[:items] ||= Pagy::DEFAULT[:items]
+    params[:page] ||= Pagy::DEFAULT[:page]
     @pagy, @products = pagy(Product.all)
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="ProductList.xlsx"'
+      }
+    end
   end
 
   # GET /products/1 or /products/1.json

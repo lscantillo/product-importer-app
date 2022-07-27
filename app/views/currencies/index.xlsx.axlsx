@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Currencies") do |sheet|
+  sheet.add_row ["ID", "Name", "Currency Code"]
+  @currencies.each do |item|
+    sheet.add_row [item.id, item.name, item.currency_code]
+  end
+end

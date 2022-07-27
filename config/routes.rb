@@ -15,5 +15,6 @@ Rails.application.routes.draw do
       end
     end
     post 'products/upload' => 'products#upload'
+    get 'dashboard/stats' => 'dashboard#stats'
   end
 end
