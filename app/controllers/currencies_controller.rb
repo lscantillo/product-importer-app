@@ -1,9 +1,10 @@
 class CurrenciesController < ApplicationController
+  include Pagy::Backend
   before_action :set_currency, only: %i[ show edit update destroy ]
 
   # GET /currencies or /currencies.json
   def index
-    @currencies = Currency.all
+    @pagy, @currencies = pagy(Currency.all)
   end
 
   # GET /currencies/1 or /currencies/1.json

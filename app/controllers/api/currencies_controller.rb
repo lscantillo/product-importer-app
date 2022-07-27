@@ -2,6 +2,7 @@
 
 module Api
   class CurrenciesController < ApplicationController
+    include Pagy::Backend
     protect_from_forgery with: :null_session
     before_action :set_currency, only: %i[show edit update destroy]
 

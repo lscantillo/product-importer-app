@@ -2,6 +2,7 @@
 
 module Api
   class ProductsController < ApplicationController
+    include Pagy::Backend
     protect_from_forgery with: :null_session
     before_action :set_product, only: %i[show edit update destroy]
     before_action :upload_csv_params, only: [:upload]
