@@ -23,6 +23,7 @@ Products admin panel to load itmes.
 
 ### API docs
 - Go to http://localhost:3000/api-docs
+- Go to https://products-importer-app.herokuapp.com/api-docs
 # Demo
 
 This applications was deploy in Heroku at https://products-importer-app.herokuapp.com/
