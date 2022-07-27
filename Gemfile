@@ -79,3 +79,11 @@ gem 'rswag-ui', '~> 2.4'
 
 # Use Rack cors
 gem 'rack-cors'
+
+gem 'sanitize', '~> 6.0'
+
+gem 'sidekiq', '~> 6.5'
+
+gem "foreman", "~> 0.87.2"
+
+gem "chartkick", "~> 4.2"
