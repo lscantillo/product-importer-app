@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CurrenciesController < ApplicationController
   include Pagy::Backend
-  before_action :set_currency, only: %i[ show edit update destroy ]
+  before_action :set_currency, only: %i[show edit update destroy]
 
   # GET /currencies or /currencies.json
   def index
@@ -8,8 +10,7 @@ class CurrenciesController < ApplicationController
   end
 
   # GET /currencies/1 or /currencies/1.json
-  def show
-  end
+  def show; end
 
   # GET /currencies/new
   def new
@@ -17,8 +18,7 @@ class CurrenciesController < ApplicationController
   end
 
   # GET /currencies/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /currencies or /currencies.json
   def create
@@ -26,7 +26,7 @@ class CurrenciesController < ApplicationController
 
     respond_to do |format|
       if @currency.save
-        format.html { redirect_to currency_url(@currency), notice: "Currency was successfully created." }
+        format.html { redirect_to currency_url(@currency), notice: 'Currency was successfully created.' }
         format.json { render :show, status: :created, location: @currency }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class CurrenciesController < ApplicationController
   def update
     respond_to do |format|
       if @currency.update(currency_params)
-        format.html { redirect_to currency_url(@currency), notice: "Currency was successfully updated." }
+        format.html { redirect_to currency_url(@currency), notice: 'Currency was successfully updated.' }
         format.json { render :show, status: :ok, location: @currency }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +53,20 @@ class CurrenciesController < ApplicationController
     @currency.destroy
 
     respond_to do |format|
-      format.html { redirect_to currencies_url, notice: "Currency was successfully destroyed." }
+      format.html { redirect_to currencies_url, notice: 'Currency was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_currency
-      @currency = Currency.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def currency_params
-      params.require(:currency).permit(:name, :currency_code)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_currency
+    @currency = Currency.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def currency_params
+    params.require(:currency).permit(:name, :currency_code)
+  end
 end

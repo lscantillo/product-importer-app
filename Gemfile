@@ -84,13 +84,13 @@ gem 'sanitize', '~> 6.0'
 
 gem 'sidekiq', '~> 6.5'
 
-gem "foreman", "~> 0.87.2"
+gem 'foreman', '~> 0.87.2'
 
-gem "chartkick", "~> 4.2"
+gem 'chartkick', '~> 4.2'
 
-gem "pagy", "~> 5.10"
+gem 'pagy', '~> 5.10'
 
 # Download csv report
-gem 'rubyzip', '>= 1.2.1'
 gem 'axlsx'
 gem 'axlsx_rails'
+gem 'rubyzip', '>= 1.2.1'

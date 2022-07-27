@@ -13,7 +13,7 @@ module CsvService
     def call
       CSV.foreach(@csv_file, headers: true) do |line|
         row = line[0].split('|')
-        price = row[1][1..-1] if row[1].present?
+        price = row[1][1..] if row[1].present?
         name = row[0] if valid_name?(row[0])
         Product.transaction do
           product = set_product(name, price, row[2], Currency.first) # TODO: Add other currencies
@@ -35,7 +35,7 @@ module CsvService
       Product.new(
         name: name,
         price: price,
-        expiration: expiration, #TODO: expiration format dd/mm/yyyy
+        expiration: expiration, # TODO: expiration format dd/mm/yyyy
         currency: currency
       )
     end

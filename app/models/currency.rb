@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Currency < ApplicationRecord
   has_many :products
   validates :name, presence: true
