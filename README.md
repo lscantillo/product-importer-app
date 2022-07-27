@@ -10,7 +10,7 @@ Products admin panel to load itmes.
   - Currency creation via form.
   - Currency creation via api.
   - Product creation via api.
-  - Cron Job for upload products batches via api.
+  - Sidekiq Worker for upload products batches via api.
 
  
 # Usage
